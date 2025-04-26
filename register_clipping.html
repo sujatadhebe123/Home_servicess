@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as a Clipper</title>
+    <link rel="stylesheet" href="cstyle.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="register-box">
+            <h2>Register as a Clipper</h2>
+            
+            <form action="register_clipping.php" method="POST">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Phone</label>
+                    <input type="text" name="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Experience (Years)</label>
+                    <input type="number" name="experience" placeholder="Enter experience in years" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Location</label>
+                    <input type="text" name="location" placeholder="Enter your city or area" required>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+
+            <p class="login-text">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

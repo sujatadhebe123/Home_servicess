@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Complaint Box</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(2px);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  </style>
+</head>
+<body class="text-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="max-w-xl w-full glass-card"> 
+    <h2 class="text-3xl font-bold mb-6 text-center">Submit a Complaint</h2>
+    
+    <form action="submit_complaint.php" method="POST" class="space-y-4">
+      <input type="text" name="user_name" placeholder="Your Name" class="w-full p-3 rounded border border-gray-300 bg-white bg-opacity-80 text-black" required />
+      
+      <input type="tel" name="contact" placeholder="Your Contact Number" class="w-full p-3 rounded border border-gray-300 bg-white bg-opacity-80 text-black" required />
+      
+      <select name="service_type" class="w-full p-3 rounded border border-gray-300 bg-white bg-opacity-80 text-black" required>
+        <option value="">Select Service</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Clipper">Clipper</option>
+        <option value="Clothing">Clothing</option>
+      </select>
+
+      <input type="text" name="worker_name" placeholder="Worker Name (if known)" class="w-full p-3 rounded border border-gray-300 bg-white bg-opacity-80 text-black" />
+
+      <textarea name="complaint" rows="5" placeholder="Write your complaint..." class="w-full p-3 rounded border border-gray-300 bg-white bg-opacity-80 text-black" required></textarea>
+
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded text-white font-semibold w-full transition duration-300">Submit Complaint</button>
+    </form>
+  </div>
+
+</body>
+</html>

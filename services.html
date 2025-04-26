@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Listing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-bg {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-lg font-semibold">Dashboard</div>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-gray-300">Dashboard</a>
+                <a href="#" class="text-white hover:text-gray-300">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <div class="container mx-auto mt-8">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Our Services</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Plumbing -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Plumbing</h2>
+                <p class="text-gray-700 mb-4">Fixing leaks, installing pipes, and other plumbing services.</p>
+                <p class="text-green-600 font-bold text-lg">$75.00</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="register_plumbing.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Register</a>
+                    <button onclick="showSearchBar('plumbing')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Book</button>
+                </div>
+                <div id="searchSection_plumbing" class="hidden mt-4">
+                    <input type="text" id="searchLocation_plumbing" placeholder="Enter Location" class="p-2 border rounded w-1/2">
+                    <button onclick="searchPlumbers()" class="bg-blue-500 text-white p-2 rounded">Search</button>
+                </div>
+                <div id="providerList_plumbing" class="mt-6 grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Electrical Work -->
+            <div class="bg-white bg p-6 rounded-lg shadow-md ">
+                <h2 class="text-2xl font-semibold mb-2">Electrical Work</h2>
+                <p class="text-gray-700 mb-4">Wiring, lighting installation, and electrical repairs.</p>
+                <p class="text-green-600 font-bold text-lg">$100.00</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="register_electrical.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Register</a>
+                    <button onclick="showSearchBar('electrical')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Book</button>
+                </div>
+                <div id="searchSection_electrical" class="hidden mt-4">
+                    <input id="searchLocation_electrical" type="text" placeholder="Enter location" class="border p-2 rounded w-1/2">
+                    <button onclick="searchElectricians()" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Search</button>
+                </div>
+                <div id="providerList_electrical" class="mt-6 grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Clothing Services -->
+            <div class="bg-white bg p-6 rounded-lg shadow-md ">
+                <h2 class="text-2xl font-semibold mb-2">Clothing Services</h2>
+                <p class="text-gray-700 mb-4">Tailoring, repairs, and custom clothing services.</p>
+                <p class="text-green-600 font-bold text-lg">$60.00</p>
+                <div class="flex space-x-3 mt-4">
+                    <a href="register_clothing.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">Register</a>
+                    <button onclick="showSearchBar('clothing')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Book</button>
+                </div>
+                <div id="searchSection_clothing" class="hidden mt-4">
+                    <input type="text" id="searchLocation_clothing" placeholder="Enter Location" class="p-2 border rounded w-1/2">
+                    <button onclick="searchProviders('clothing')" class="bg-blue-500 text-white p-2 rounded">Search</button>
+                </div>
+                <div id="providerList_clothing" class="mt-6 grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Housekeeping Services -->
+            <div class="bg-white bg p-6 rounded-lg shadow-md ">
+                <h2 class="text-2xl font-semibold mb-2">Housekeeping Services</h2>
+                <p class="text-gray-700 mb-4">Cleaning, organizing, and home maintenance tasks.</p>
+                <p class="text-green-600 font-bold text-lg">$80.00</p>
+                <div class="flex space-x-3 mt-4">
+                    <a href="register_housekeeping.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">Register</a>
+                    <button onclick="showSearchBar('housekeeping')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Book</button>
+                </div>
+                <div id="searchSection_housekeeping" class="hidden mt-4">
+                    <input type="text" id="searchLocation_housekeeping" placeholder="Enter Location" class="p-2 border rounded w-1/2">
+                    <button onclick="searchProviders('housekeeping')" class="bg-blue-500 text-white p-2 rounded">Search</button>
+                </div>
+                <div id="providerList_housekeeping" class="mt-6 grid grid-cols-1 gap-6"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function showSearchBar(serviceType) {
+            document.getElementById('searchSection_' + serviceType).classList.toggle('hidden');
+        }
+
+        function searchPlumbers() {
+            var location = document.getElementById('searchLocation_plumbing').value;
+            fetch('fetch_plumbers.php?location=' + encodeURIComponent(location))
+                .then(response => response.json())
+                .then(data => {
+                    let providerList = document.getElementById('providerList_plumbing');
+                    providerList.innerHTML = '';
+                    if (data.length === 0) {
+                        providerList.innerHTML = '<p class="text-center text-red-500">No plumbers found in this location.</p>';
+                    } else {
+                        data.forEach(plumber => {
+                            providerList.innerHTML += `
+                                <div class="bg-white p-4 rounded shadow">
+                                    <h2 class="text-lg font-bold">${plumber.name}</h2>
+                                    <p>Experience: ${plumber.experience} years</p>
+                                    <p class="text-green-600">${plumber.phone}</p>
+                                    <button onclick="bookPlumber('${plumber.id}')" class="bg-green-500 text-white px-4 py-2 rounded mt-2">Book</button>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+        }
+
+        function searchElectricians() {
+            const location = document.getElementById('searchLocation_electrical').value.trim();
+            if (location === "") return alert("Please enter a location to search.");
+
+            fetch('fetch_electricians.php?location=' + encodeURIComponent(location))
+                .then(response => response.json())
+                .then(data => {
+                    const providerList = document.getElementById('providerList_electrical');
+                    providerList.innerHTML = '';
+                    if (data.length === 0) {
+                        providerList.innerHTML = '<p class="text-center text-red-500">No electricians found in this location.</p>';
+                    } else {
+                        data.forEach(electrician => {
+                            providerList.innerHTML += `
+                                <div class="bg-white p-4 rounded shadow">
+                                    <h2 class="text-lg font-bold">${electrician.name}</h2>
+                                    <p>Experience: ${electrician.experience} years</p>
+                                    <p class="text-green-600">${electrician.phone}</p>
+                                    <button onclick="bookElectrician('${electrician.id}')" class="bg-green-500 text-white px-4 py-2 rounded mt-2">Book</button>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+        }
+
+        function searchProviders(serviceType) {
+            const location = document.getElementById('searchLocation_' + serviceType).value.trim();
+            if (location === "") return alert("Please enter a location to search.");
+
+            const fetchFile = serviceType === 'clothing' ? 'fetch_clothing.php' :
+                              serviceType === 'housekeeping' ? 'fetch_housekeeping.php' : '';
+            fetch(`${fetchFile}?location=` + encodeURIComponent(location))
+                .then(response => response.json())
+                .then(data => {
+                    const providerList = document.getElementById('providerList_' + serviceType);
+                    providerList.innerHTML = '';
+                    if (data.length === 0) {
+                        providerList.innerHTML = '<p class="text-center text-red-500">No providers found in this location.</p>';
+                    } else {
+                        data.forEach(worker => {
+                            providerList.innerHTML += `
+                                <div class="bg-white p-4 rounded shadow">
+                                    <h2 class="text-lg font-bold">${worker.name}</h2>
+                                    <p>Experience: ${worker.experience} years</p>
+                                    <p class="text-green-600">${worker.phone}</p>
+                                    <button onclick="bookClothing('${worker.id}')" class="bg-green-500 text-white px-4 py-2 rounded mt-2">Book</button>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+        }
+
+        function bookPlumber(plumberId) {
+            fetch('book_plumber.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: plumberId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? "Plumber booked! Confirmation sent." : "Booking failed: " + data.error);
+            });
+        }
+
+        function bookElectrician(electricianId) {
+            const userPhone = prompt("Enter your phone number:");
+            if (!userPhone) return alert("Phone number required.");
+            fetch('booking_electrician.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: electricianId, phone: userPhone.trim() })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? "Electrician booked! Confirmation sent." : "Booking failed: " + data.error);
+            });
+        }
+
+        function bookClothing(clothingId) {
+            const userPhone = prompt("Please enter your phone number to proceed with the booking:");
+            if (!userPhone) return alert("Booking cancelled. Phone number is required.");
+            fetch('booking_clothing.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: clothingId, phone: userPhone.trim() })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? "Clothing worker booked! Confirmation sent." : "Booking failed: " + data.error);
+            });
+        }
+    </script>
+</body>
+</html>

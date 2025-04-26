@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as a Clipper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            background-image: url('https://tse2.mm.bing.net/th?id=OIP.M7HQWlDmuU7enpXMRP3xiAHaDU&pid=Api&P=0&h=180'); /* Fabric/cloth-related background */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .input-group label {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .login-text a {
+            color: #cbd5e1;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+
+    <div class="glass-box p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-semibold mb-4 text-center text-white">Register for Clothing</h2>
+        
+        <form action="register_clothing.php" method="POST">
+            <div class="input-group mb-4">
+                <label>Full Name</label>
+                <input type="text" name="name" class="w-full border rounded p-2 mt-1 text-black" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group mb-4">
+                <label>Email</label>
+                <input type="email" name="email" class="w-full border rounded p-2 mt-1 text-black" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group mb-4">
+                <label>Phone</label>
+                <input type="text" name="phone" class="w-full border rounded p-2 mt-1 text-black" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="input-group mb-4">
+                <label>Experience (Years)</label>
+                <input type="number" name="experience" class="w-full border rounded p-2 mt-1 text-black" placeholder="Enter experience in years" required>
+            </div>
+
+            <div class="input-group mb-4">
+                <label>Location</label>
+                <input type="text" name="location" class="w-full border rounded p-2 mt-1 text-black" placeholder="Enter your city or area" required>
+            </div>
+
+            <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Register</button>
+        </form>
+
+        <p class="login-text text-center mt-4 text-white">
+            Already have an account? <a href="login.html">Login</a>
+        </p>
+    </div>
+
+</body>
+</html>

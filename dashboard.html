@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://tse4.mm.bing.net/th?id=OIP.LqulgiTOulP6hzqGvGUXuAHaEK&pid=Api&P=0&h=180'); /* replace with your preferred image URL or local path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #000000;
+        }
+
+        main {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .user-info,
+        .contact-form {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            color: #000;
+        }
+
+        .user-info p,
+        .contact-form label {
+            color: #111;
+        }
+
+        .user-info h2,
+        .contact-form h3 {
+            color: #222;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form button {
+            background: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #218838;
+        }
+
+        .map {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 800px) {
+            .service-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .service-card {
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px auto;
+                width: fit-content;
+            }
+
+            main {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Home_Servicess</h1>
+        <nav>
+            <a href="services.html">View Services</a>
+            <a href="profile.php">Profile</a>
+            <a href="chart.html">Chart</a>
+            <a href="complaint.html">Complaint Box</a>
+            <a href="view_complaints.php">View Complaints</a>
+            <a href="admin_login.html">Admin Login</a>
+            <a href="logout.php" onclick="logoutUser()">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="user-info">
+            <h2>Welcome to our web application</h2>
+            <p>Name: <span id="userName">Sujata_Dhebe</span></p>
+            <p>Email: <span id="userEmail">sujatadhebe34@gmail.com</span></p>
+            <p>Member since: <span id="userSince">January 1, 2025</span></p>
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+            <form id="contactForm">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+
+        <h3 style="color: white;">Our Location</h3>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30216.510795365193!2d73.31575845444807!3d18.795307670522256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be80711b08050b5%3A0x68fc1d6871dbd86d!2sKhopoli%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1744226112190!5m2!1sen!2sin " width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
